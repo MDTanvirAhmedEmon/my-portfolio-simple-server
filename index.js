@@ -29,7 +29,7 @@ async function run() {
     });
     app.get("/projects/:id", async (req, res) => {
         const id = req.params.id;
-      const projects = await projectsCollection.find({ _id: new ObjectId(id)}).toArray();
+      const projects = await projectsCollection.findOne({ _id: new ObjectId(id)});
       res.send({ status: true, data: projects });
     });
   } finally {
